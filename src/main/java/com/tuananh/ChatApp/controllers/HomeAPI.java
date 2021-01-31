@@ -1,4 +1,4 @@
-package com.tuananh.ChatApp;
+package com.tuananh.ChatApp.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
