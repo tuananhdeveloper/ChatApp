@@ -1,65 +1,119 @@
 package com.tuananh.ChatApp.enities;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class User extends BaseModel implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-    private static final long serialVersionUID = 5706739933426877475L;
-
-    private Integer id;
-    private String email;
+@Entity
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "USERNAME")})
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USERID")
+    private Integer userId;
+    @Column(name = "USERNAME", nullable = false)
     private String username;
+    @Column(name = "PASSWORD", nullable = false)
     private String password;
+    @Column(name = "ROLE")
+    private String role;
+    @Column(name = "EMAIL")
+    private String email;
+    @Column(name = "FULLNAME")
+    private String fullName;
+    @Column(name = "ADDRESS")
+    private String address;
+    @Column(name = "DATEOFBIRTH")
+    private Date dateOfBirth;
+    @Column(name = "AVATAR")
+    private String avatar;
+    @Column(name = "ACTIVEFLG")
+    private Integer activeFlg;
 
-    public User(String createBy, String createDate, String updateBy, String updateDate, Integer id, String email, String username, String password) {
-        super(createBy, createDate, updateBy, updateDate);
-        this.id = id;
-        this.email = email;
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public User(String createBy, String createDate, String updateBy, String updateDate) {
-        super(createBy, createDate, updateBy, updateDate);
+    public String getRole() {
+        return role;
     }
 
-    @Override
-    public String getCreateBy() {
-        return super.getCreateBy();
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    @Override
-    public void setCreateBy(String createBy) {
-        super.setCreateBy(createBy);
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public String getCreateDate() {
-        return super.getCreateDate();
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public void setCreateDate(String createDate) {
-        super.setCreateDate(createDate);
+    public String getFullName() {
+        return fullName;
     }
 
-    @Override
-    public String getUpdateBy() {
-        return super.getUpdateBy();
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    @Override
-    public void setUpdateBy(String updateBy) {
-        super.setUpdateBy(updateBy);
+    public String getAddress() {
+        return address;
     }
 
-    @Override
-    public String getUpdateDate() {
-        return super.getUpdateDate();
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    @Override
-    public void setUpdateDate(String updateDate) {
-        super.setUpdateDate(updateDate);
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Integer getActiveFlg() {
+        return activeFlg;
+    }
+
+    public void setActiveFlg(Integer activeFlg) {
+        this.activeFlg = activeFlg;
     }
 }

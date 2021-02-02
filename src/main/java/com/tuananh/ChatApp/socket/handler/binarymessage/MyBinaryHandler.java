@@ -1,4 +1,4 @@
-package com.tuananh.ChatApp.socket.handler;
+package com.tuananh.ChatApp.socket.handler.binarymessage;
 
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.WebSocketSession;
