@@ -1,14 +1,16 @@
 package com.tuananh.ChatApp.socket.handler.textmessage;
 
 public class MessageContext {
-	private Message message;
-
-	public MessageContext(Message message) {
-		super();
-		this.message = message;
-	}
+	private MessageHandler handler;
 	
+	public MessageContext(MessageHandler handler) {
+		super();
+		this.handler = handler;
+	}
+
+
+
 	public void handle() {
-		message.handle();
+		handler.handle();
 	}
 }

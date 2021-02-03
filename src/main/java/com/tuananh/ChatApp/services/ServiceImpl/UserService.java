@@ -12,7 +12,7 @@ import com.tuananh.ChatApp.enities.User;
 @Service
 public class UserService {
     @Autowired
-    private DAO dao;
+    private UserDao dao;
 
     public List<User> getAllUser() {
         return dao.getAll();

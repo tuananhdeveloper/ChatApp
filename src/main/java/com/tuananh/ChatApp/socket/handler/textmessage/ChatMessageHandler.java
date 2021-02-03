@@ -2,7 +2,7 @@ package com.tuananh.ChatApp.socket.handler.textmessage;
 
 import org.springframework.web.socket.WebSocketSession;
 
-public class ChatMessageHandler implements Message{
+public class ChatMessageHandler implements MessageHandler{
 	
 	public ChatMessageHandler(WebSocketSession session) {
 		// TODO Auto-generated constructor stub
