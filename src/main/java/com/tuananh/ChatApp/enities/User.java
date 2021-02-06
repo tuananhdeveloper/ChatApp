@@ -1,72 +1,48 @@
 package com.tuananh.ChatApp.enities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "USERNAME")})
-public class User implements Serializable {
+@Table(name="user")
+
+public class User extends BaseModel implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USERID")
-    private Integer userId;
-    @Column(name = "USERNAME", nullable = false)
-    private String username;
-    @Column(name = "PASSWORD", nullable = false)
-    private String password;
-    @Column(name = "ROLE")
-    private String role;
-    @Column(name = "EMAIL")
+    @Column(name = "id")
+    private int id;
+    @Column(name = "email", nullable = false,unique = true)
     private String email;
-    @Column(name = "FULLNAME")
-    private String fullName;
-    @Column(name = "ADDRESS")
-    private String address;
-    @Column(name = "DATEOFBIRTH")
-    private Date dateOfBirth;
-    @Column(name = "AVATAR")
-    private String avatar;
-    @Column(name = "ACTIVEFLG")
-    private Integer activeFlg;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
+    @Column(name = "phone")
+    private String phone;
 
-    public Integer getUserId() {
-        return userId;
+    public User() {
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+    public User(String createBy, Date createDate, String updateBy, Date updateDate, String email, String password, String firstName, String lastName, String phone) {
+        super(createBy, createDate, updateBy, updateDate);
+        this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
     }
 
-    public String getRole() {
-        return role;
+    public int getId() {
+        return id;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -77,43 +53,35 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Integer getActiveFlg() {
-        return activeFlg;
-    }
-
-    public void setActiveFlg(Integer activeFlg) {
-        this.activeFlg = activeFlg;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

@@ -1,12 +1,23 @@
 package com.tuananh.ChatApp.enities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
+import java.util.Date;
+@MappedSuperclass
 public class BaseModel {
+    @Column(name ="createBy")
     private String createBy;
-    private String createDate;
+    @Column(name ="createDate")
+    private Date createDate;
+    @Column(name ="updateBy")
     private String updateBy;
-    private String updateDate;
+    @Column(name ="updateDate")
+    private Date updateDate;
 
-    public BaseModel(String createBy, String createDate, String updateBy, String updateDate) {
+    public BaseModel() {}
+
+    public BaseModel(String createBy, Date createDate, String updateBy, Date updateDate) {
         this.createBy = createBy;
         this.createDate = createDate;
         this.updateBy = updateBy;
@@ -21,11 +32,11 @@ public class BaseModel {
         this.createBy = createBy;
     }
 
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
@@ -37,11 +48,11 @@ public class BaseModel {
         this.updateBy = updateBy;
     }
 
-    public String getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(String updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 }
